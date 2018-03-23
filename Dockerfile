@@ -1,4 +1,4 @@
-FROM debezium/connect-base:0.7
+FROM confluentinc/cp-kafka-connect-base:latest
 
 MAINTAINER Debezium Community
 
