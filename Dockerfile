@@ -1,9 +1,8 @@
-FROM confluentinc/cp-kafka-connect-base:latest
+FROM debezium/connect-base:0.7
 
-MAINTAINER rzrbld
+MAINTAINER Debezium Community
 
 ENV DEBEZIUM_VERSION=0.7.5 \
-    KAFKA_CONNECT_PLUGINS_DIR=/kafka/connect \
     MAVEN_CENTRAL="https://repo1.maven.org/maven2" \
     MD5SUMS="MONGODB_MD5=eca32461520fe26246c54fc675ef7521 MYSQL_MD5=5b31f16787ae5691e4bb67721e10f8dc POSTGRES_MD5=730cc8acdb4f272498869b986e35ee0a"
 
@@ -11,8 +10,6 @@ ENV DEBEZIUM_VERSION=0.7.5 \
 # Download connectors, verify the contents, and then install into the `$KAFKA_CONNECT_PLUGINS_DIR/debezium` directory...
 #
 RUN eval $MD5SUMS &&\
-    mkdir -p $KAFKA_CONNECT_PLUGINS_DIR &&\
-    apt update && apt install unzip -y && \
     for CONNECTOR in {mysql,mongodb,postgres}; do \
     curl -fSL -o /tmp/plugin.tar.gz \
                  $MAVEN_CENTRAL/io/debezium/debezium-connector-$CONNECTOR/$DEBEZIUM_VERSION/debezium-connector-$CONNECTOR-$DEBEZIUM_VERSION-plugin.tar.gz &&\
