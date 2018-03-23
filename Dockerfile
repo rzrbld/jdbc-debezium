@@ -17,7 +17,7 @@ RUN eval $MD5SUMS &&\
     echo "${!MD5_PARAM_NAME}  /tmp/plugin.tar.gz" | md5sum -c - &&\
     tar -xzf /tmp/plugin.tar.gz -C $KAFKA_CONNECT_PLUGINS_DIR &&\
     rm -f /tmp/plugin.tar.gz; \             
-    done;
+    done; \
     curl -fSL -o /tmp/sqlite-connect.zip \
                  https://github.com/rzrbld/kafka-connector-jdbc/archive/master.zip &&\
     unzip /tmp/sqlite-connect.zip -d $KAFKA_CONNECT_PLUGINS_DIR &&\
