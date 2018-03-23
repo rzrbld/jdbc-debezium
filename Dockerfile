@@ -11,7 +11,7 @@ ENV DEBEZIUM_VERSION=0.7.5 \
 # Download connectors, verify the contents, and then install into the `$KAFKA_CONNECT_PLUGINS_DIR/debezium` directory...
 #
 RUN eval $MD5SUMS &&\
-    mkdir $KAFKA_CONNECT_PLUGINS_DIR &&\
+    mkdir -p $KAFKA_CONNECT_PLUGINS_DIR &&\
     for CONNECTOR in {mysql,mongodb,postgres}; do \
     curl -fSL -o /tmp/plugin.tar.gz \
                  $MAVEN_CENTRAL/io/debezium/debezium-connector-$CONNECTOR/$DEBEZIUM_VERSION/debezium-connector-$CONNECTOR-$DEBEZIUM_VERSION-plugin.tar.gz &&\
