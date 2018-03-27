@@ -24,6 +24,5 @@ RUN eval $MD5SUMS &&\
     rm -f /tmp/sqlite-connect.zip; \
     curl -fSL -o /tmp/postinstall.zip \
                  https://github.com/rzrbld/jdbc-debezium-postinstall/archive/master.zip &&\
-    mkdir /opt &&\
     unzip /tmp/postinstall.zip -d /opt/ &&\
     rm -rf /tmp/postinstall.zip;\
