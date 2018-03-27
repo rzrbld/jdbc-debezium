@@ -21,9 +21,4 @@ RUN eval $MD5SUMS &&\
     curl -fSL -o /tmp/sqlite-connect.zip \
                  https://github.com/rzrbld/kafka-connector-jdbc/archive/master.zip &&\
     unzip /tmp/sqlite-connect.zip -d $KAFKA_CONNECT_PLUGINS_DIR &&\
-    rm -f /tmp/sqlite-connect.zip; \
-    curl -fSL -o /tmp/postinstall.zip \
-                 https://github.com/rzrbld/jdbc-debezium-postinstall/archive/master.zip &&\
-    mkdir /tmp/postinstall && \
-    unzip /tmp/postinstall.zip -d /tmp/postinstall/ &&\
-    rm -rf /tmp/postinstall.zip;\
+    rm -f /tmp/sqlite-connect.zip;
